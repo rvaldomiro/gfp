@@ -1,6 +1,12 @@
+# -*- encoding : utf-8 -*-
 Gfp::Application.routes.draw do
-  #get "welcome/index"
-  root :to => 'welcome#index'
+
+  root :to => 'home#index'
+  
+  resource :sessions
+  resources :usuarios
+
+  get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GFP - Gerente Financeiro Pessoal</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>GFP - Gerente Financeiro Pessoal</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
 
-<%= yield %>
+	<body>
+		<header>
+			GFP
+			<% if session[:usuario] %>
+				Bem Vindo <%= session[:usuario].nome %> 
+				<%= link_to 'Perfil', edit_usuario_path(session[:usuario]) %>
+				<%= link_to 'Sair', sessions_path, confirm: 'Deseja realmente encerrar esta sessão?', method: :delete %>
+			<% end %>
+		</header>
 
-</body>
+		<% if flash[:notice] %>
+			<%= flash[:notice] %>
+		<% end %>
+
+		<%= yield %>
+
+		<footer>
+			<sub>Gerente Financeiro Pessoal</sub>
+		</footer>
+	</body>
 </html>
