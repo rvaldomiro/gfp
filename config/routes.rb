@@ -4,11 +4,7 @@ Gfp::Application.routes.draw do
   root :to => 'home#index'
   
   resource :sessions
-  # resources :usuarios
-  match '/usuarios/new' => 'usuarios#new'
-  match '/usuarios/edit' => 'usuarios#edit'
-
-  # get "home/index"
+  resources :usuarios #, :only => [ :new, :create, :edit ]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
