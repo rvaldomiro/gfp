@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     e-mail
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :disabled => !@usuario.id.nil? %>
   </div>
   <div class="field">
     Senha

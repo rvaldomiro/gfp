@@ -10,10 +10,10 @@
 	<body>
 		<header>
 			GFP
-			<% if session[:usuario] %>
-				Bem Vindo <%= session[:usuario].nome %> 
-				<%= link_to 'Perfil', edit_usuario_path(session[:usuario]) %>
-				<%= link_to 'Sair', sessions_path, confirm: 'Deseja realmente encerrar esta sessão?', method: :delete %>
+			<% if session[:user] %>
+				Bem Vindo <%= session[:user].nome %> 
+				<%= link_to "Perfil", edit_usuario_path(session[:user]) %>
+				<%= link_to "Sair", sessions_path, confirm: "Deseja realmente encerrar esta sessão?", method: :delete %>
 			<% end %>
 		</header>
 

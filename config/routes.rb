@@ -1,10 +1,13 @@
 # -*- encoding : utf-8 -*-
 Gfp::Application.routes.draw do
 
-  root :to => 'home#index'
+  root :to => "home#index"
   
   resource :sessions
-  resources :usuarios #, :only => [ :new, :create, :edit ]
+  resources :usuarios
+
+  get "passwords/forgot"
+  post "passwords/reset"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

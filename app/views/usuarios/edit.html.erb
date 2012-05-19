@@ -1,5 +1,6 @@
 <h1>Meu Perfil</h1>
 
-<%= render 'form' %>
+<%= render "form" %>
 
-<%= link_to 'Home', root_path %>
+<%= link_to "Home", root_path %>
+<%= link_to "Excluir Conta", usuario_path, confirm: "Deseja realmente excluir sua conta?", method: :delete %>

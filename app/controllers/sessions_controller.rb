@@ -12,10 +12,11 @@ class SessionsController < ApplicationController
 			@usuario = Usuario.login(@session.login_name, @session.password)
 
 			if @usuario
-				session[:usuario] = @usuario
+				update_session_user(@usuario)
 				redirect_to session[:requested_url] || root_path
 			else
-				redirect_to new_sessions_path, :notice => "Usuário e/ou Senha inválidos!"
+				@email = @session.login_name
+				redirect_to new_sessions_path, :notice => "Credenciais inválidas!"
 			end
 		else
 			render :new
@@ -23,7 +24,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:usuario] = nil
+		remove_session_user
 		redirect_to new_sessions_path
 	end
 

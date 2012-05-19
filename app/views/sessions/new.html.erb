@@ -1,8 +1,9 @@
 <h1>Bem Vindo ao GFP</h1>
 
 <%= form_for @session do |f| %>
-	Usuário<%= f.text_field :login_name %>
+	E-Mail<%= f.text_field :login_name %>
 	Senha<%= f.password_field :password %>
 	<%= f.submit "Login" %>
-	<%= link_to "Novo Usuário", new_usuario_path %>
+	<%= link_to "Novo Usuário", new_usuario_path %>	
+	<%= link_to "Esquecí minha senha", passwords_forgot_path %>
 <% end %>
