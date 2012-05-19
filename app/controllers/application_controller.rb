@@ -27,11 +27,20 @@ class ApplicationController < ActionController::Base
     end
 
     def update_session_user(user)
+      unless already_logged_in?
+        session[:last_login] = user.ultimo_acesso
+        user.password_reset = nil
+        user.ultimo_acesso = Time.now
+        user.save
+      end
+
       session[:user] = user
     end
 
     def remove_session_user
       session[:user] = nil
+      session[:requested_url] = nil;
+      session[:last_login] = nil;
     end
 
 end

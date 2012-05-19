@@ -3,17 +3,17 @@ class Usuario < ActiveRecord::Base
 
 	has_secure_password
 
-  attr_accessible :nome, :email, :password_digest, :password, :password_confirmation
+  attr_accessible :nome, :usuario, :email, :password_digest, :password, :password_confirmation
 
-  validates :nome,  :presence => true
-  validates :email, :presence => true, :uniqueness => true
+  validates :nome,  :usuario, :email, :presence => true
+  validates :email, :usuario, :uniqueness => { :message => "Nome de usuário e/ou e-mail já cadastrados!" }
   	
   validates_format_of :email,
                       :with    => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
-                      :message => 'E-Mail inválido!'
+                      :message => "e-mail inválido!"
 
-	def self.login(email, senha)
-		find_by_email(email).try(:authenticate, senha)
+	def self.login(usuario, senha)
+		find(:first, :conditions => ["usuario = ? or email = ?", usuario, usuario]).try(:authenticate, senha)
 	end
 
 end

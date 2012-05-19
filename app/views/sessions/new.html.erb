@@ -1,9 +1,15 @@
-<h1>Bem Vindo ao GFP</h1>
+<h1>Informe suas credenciais</h1>
 
 <%= form_for @session do |f| %>
-	E-Mail<%= f.text_field :login_name %>
-	Senha<%= f.password_field :password %>
+	<%= f.text_field :login_name, :placeholder => "Nome de usuário ou e-mail" %>
+	<%= f.password_field :password, :placeholder => "Senha" %>
 	<%= f.submit "Login" %>
-	<%= link_to "Novo Usuário", new_usuario_path %>	
-	<%= link_to "Esquecí minha senha", passwords_forgot_path %>
 <% end %>
+
+<%= link_to "Esqueceu sua senha?", passwords_forgot_path %>
+
+<div>
+	<h4>Ainda não é usuário?</h4>
+	<h5>Você pode utilizar os recursos do GFP para controlar suas receitas e despesas de forma segura e totalmente de graça. Tá esperando o que?</h5>
+	<%= button_to "Crie sua conta agora mesmo", new_usuario_path, :method => "get" %>	
+</div>

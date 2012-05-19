@@ -6,7 +6,9 @@ Gfp::Application.routes.draw do
   resource :sessions
   resources :usuarios
 
+  get "sessions/reset_password"
   get "passwords/forgot"
+  
   post "passwords/reset"
 
   # The priority is based upon order of creation:

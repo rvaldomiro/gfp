@@ -4,11 +4,12 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    RESETAR SENHA
-    <b><%= @user.nome %> lhe enviou uma mensagem:</b>
-    <p>
-      Teste de envio de emails pelo GFP
-    </p>
+  <div style="border: 1px solid #eee; background-color: #f8f8f8; padding: 15px;">
+    <h3><u>GFP - Alteração de Senha</u></h3><br/>
+    Olá <%= @user.nome %>,<br/><br/>
+    Conforme sua solicitação estamos enviando o link abaixo para que você possa cadastrar sua nova senha.<br/><br/>Acesse:<br/><br/>
+    <a href="<%= @link %>"><%= @link %></a>
+  </div>
+  <br/><i>Caso não tenha solicitado esta alteração por favor desconsidere este e-mail.<i>
   </body>
-  <footer><%= @site %></footer>
 </html>

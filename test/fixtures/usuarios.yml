@@ -2,12 +2,12 @@
 
 one:
   nome: MyString
-  nome_usuario: MyString
-  senha: MyString
+  usuario: MyString
   email: MyString
+  password_digest: MyString
 
 two:
   nome: MyString
-  nome_usuario: MyString
-  senha: MyString
+  usuario: MyString
   email: MyString
+  password_digest: MyString
