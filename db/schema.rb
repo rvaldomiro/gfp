@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120517140621) do
 
   create_table "usuarios", :force => true do |t|
     t.string   "nome"
-    t.string   "usuario"
+    t.string   "nome_login"
     t.string   "email"
     t.string   "password_digest"
     t.string   "password_reset"

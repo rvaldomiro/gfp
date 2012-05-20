@@ -9,7 +9,7 @@ class PasswordsControllerTest < ActionController::TestCase
 
   test "should get reset" do
     get :reset
-    assert_response :success
+    assert_redirected_to passwords_forgot_path
   end
 
 end

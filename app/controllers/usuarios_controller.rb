@@ -44,15 +44,13 @@ class UsuariosController < ApplicationController
 	end
 
 	def destroy
-		@usuario = session_user
-	
+		# @usuario = session_user
+		@usuario = Usuario.find(params[:id])
+		@usuario.destroy
+		remove_session_user
+
 		respond_to do |format|
-			if @usuario.destroy
-				remove_session_user
-				format.html { redirect_to new_sessions_path }
-			else
-				format.html { render action: "edit", notice: "Não foi possível excluir seu perfil!" }  
-			end
+			format.html { redirect_to new_sessions_path }
 		end
 	end
 
