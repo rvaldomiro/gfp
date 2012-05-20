@@ -6,7 +6,7 @@ class UsuarioMailer < ActionMailer::Base
   def mail_boas_vindas(request, user)
     @site = request.host_with_port
     @user = user
-    # @link = "http://<%= @site %>/sessions/reset_password?id=<%= @user.password_reset %>"
+    @link = "http://#{@site}"
 
     mail(:to => user.email, :subject => "Seja bem-vindo ao GFP") do |format|
    		format.html { render "mail_boas_vindas" }

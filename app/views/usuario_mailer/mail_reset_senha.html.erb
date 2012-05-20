@@ -2,14 +2,44 @@
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <style type="text/css">
+    body {
+      font-family: arial;
+      font-size: 14px;
+      color: #6B6B6A;
+    }
+    
+    h3 {
+      border-bottom: solid 1px #eee;
+      text-shadow: #fff 1px 1px;
+    }
+    
+    i {
+      font-size: 11px;
+      color: #000;
+    }
+    
+    div {
+      box-shadow: 0px 0px 6px 1px #ccc;
+      border: 1px solid #eee; 
+      background-color: #f8f8f8; 
+      padding: 0 15px 15px 15px; 
+      margin: 5px;
+    }
+    
+    p {
+      text-align: center;
+      margin: -8px;
+    }
+  </style>
   </head>
   <body>
-  <div style="border: 1px solid #eee; background-color: #f8f8f8; padding: 15px;">
-    <h3><u>GFP - Alteração de Senha</u></h3><br/>
-    Olá <%= @user.nome %>,<br/><br/>
-    Conforme sua solicitação estamos enviando o link abaixo para que você possa cadastrar sua nova senha.<br/><br/>Acesse:<br/><br/>
-    <a href="<%= @link %>"><%= @link %></a>
-  </div>
-  <br/><i>Caso não tenha solicitado esta alteração por favor desconsidere este e-mail.<i>
+    <div>
+      <h3>GFP - Alteração de Senha</h3><br/>
+      Olá <%= @user.nome %>,<br/><br/>
+      Conforme solicitação estamos providenciando a alteração de sua senha, para concluir este processo clique no link abaixo e cadastre uma nova senha.<br/><br/>
+      <a href="<%= @link %>"><%= @link %></a>
+    </div>
+    <br/><p><i>Caso não tenha solicitado esta alteração por favor desconsidere este e-mail.<i></p>
   </body>
 </html>

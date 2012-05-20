@@ -34,7 +34,7 @@ class UsuariosController < ApplicationController
 		respond_to do |format|
 			if @usuario.update_attributes(params[:usuario])
 				update_session_user(@usuario)
-				format.html { redirect_to root_path, notice: 'Seu perfil foi atualizado com sucesso!' }
+				format.html { redirect_to root_path, notice: "Seu perfil foi atualizado com sucesso!" }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
@@ -44,13 +44,12 @@ class UsuariosController < ApplicationController
 	end
 
 	def destroy
-		# @usuario = session_user
 		@usuario = Usuario.find(params[:id])
 		@usuario.destroy
 		remove_session_user
 
 		respond_to do |format|
-			format.html { redirect_to new_sessions_path }
+			format.html { redirect_to new_sessions_path, notice: "Seu perfil foi excluído com sucesso!" }
 		end
 	end
 
