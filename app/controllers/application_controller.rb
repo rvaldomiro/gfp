@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
       controller_name == "passwords"
     }
 
+    def self.mock_login(request, user)
+      request.session[:user] = user
+    end
+
     protected
 
     def need_login
@@ -40,7 +44,7 @@ class ApplicationController < ActionController::Base
     def remove_session_user
       session[:user] = nil
       session[:requested_url] = nil;
-      session[:last_login] = nil;
+      session[:last_login] = nil; 
     end
 
 end
