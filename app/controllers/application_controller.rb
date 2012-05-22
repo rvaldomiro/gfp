@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
       request.session[:user] = user
     end
 
+    def self.mock_logout(request)
+      request.session[:user] = nil
+      request.session[:requested_url] = nil;
+      request.session[:last_login] = nil; 
+    end
+
     protected
 
     def need_login
