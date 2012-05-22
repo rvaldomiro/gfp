@@ -44,7 +44,7 @@ class UsuariosController < ApplicationController
 	end
 
 	def destroy
-		@usuario = Usuario.find(params[:id])
+		@usuario = session_user
 		@usuario.destroy
 		remove_session_user
 

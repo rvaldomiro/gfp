@@ -12,6 +12,8 @@ class Usuario < ActiveRecord::Base
                       :with    => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
                       :message => "e-mail inválido!"
 
+  before_save { |o| o.nome = o.nome.capitalize }
+
 	def self.login(nome_login, senha)
 		find(:first, :conditions => ["nome_login = ? or email = ?", nome_login, nome_login]).try(:authenticate, senha)
 	end
