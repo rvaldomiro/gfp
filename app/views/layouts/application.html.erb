@@ -16,7 +16,7 @@
 					<br>Seu último acesso foi em: <%= session[:last_login].strftime("%d/%m/%Y às %H:%M") %> 
 				<% end %>	
 				<%= link_to "Perfil", edit_usuario_path(session[:user]) %>
-				<%= link_to "Sair", sessions_path, confirm: "Deseja realmente encerrar esta sessão?", method: :delete %>
+				<%= link_to "Sair", sessions_path, method: :delete %>
 			<% end %>
 		</header>
 

@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {  
+
+  $("#session_remember_me").click(function() {
+   	if (!this.checked) {
+   		$("#session_password").attr("value", null);
+  	}
+  });
+  
+});

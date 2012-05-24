@@ -40,6 +40,29 @@ describe "ControleAcessos" do
     page.should have_content("Bem-vindo Xpto")
   end
 
+  it "logando com usuario registrado solicitando lembrar informações" do
+  	need_login(true)
+
+    click_link "Sair"
+    page.find_field("session_login_name").value.should eq(@usuario_logado.nome_login)
+    page.find_field("session_password").value.should eq("ztySUlt3b+mKPX3fcm")
+
+    uncheck "session_remember_me"
+    click_button "Login"
+    page.should have_content("Credenciais inválidas!")
+    page.find_field("session_login_name").value.should nil
+    page.find_field("session_password").value.should nil
+
+    fill_in "session_login_name", :with => "xpto"
+    fill_in "session_password"  , :with => "xpto"
+    click_button "Login"
+    current_path.should eq(root_path)
+
+    click_link "Sair"
+    page.find_field("session_login_name").value.should nil
+    page.find_field("session_password").value.should nil
+  end
+
   it "logando com credenciais inválidas" do
   	create_users
 
@@ -71,7 +94,7 @@ describe "ControleAcessos" do
 		last_email.to.should include(@usuario_teste.email)
 
 		@usuario_teste = Usuario.find(@usuario_teste)
-		visit "#{sessions_reset_password_path}?id=#{@usuario_teste.password_reset}"
+		visit "#{sessions_reset_password_path}?id=#{@usuario_teste.password_reset_token}"
 		current_path.should eq(edit_usuario_path(@usuario_teste))				
 	end
 

@@ -16,7 +16,7 @@ class UsuarioMailer < ActionMailer::Base
   def mail_reset_senha(request, user)
     @site = request.host_with_port
     @user = user
-    @link = "http://#{@site}/sessions/reset_password?id=#{@user.password_reset}"
+    @link = "http://#{@site}/sessions/reset_password?id=#{@user.password_reset_token}"
 
     mail(:to => user.email, :subject => "Solicitação de alteração de senha") do |format|
    		format.html { render "mail_reset_senha" }
