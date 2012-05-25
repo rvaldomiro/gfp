@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-describe "HomeActions" do
+describe "Navegacao" do
 
   it "alterando informações do perfil" do
   	need_login

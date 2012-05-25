@@ -7,6 +7,13 @@ gem 'rails', '3.2.3'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'rb-fsevent'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'spork', '~> 0.9.0.rc'
+  gem 'guard-spork'
 end
 
 group :production do
@@ -41,11 +48,3 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-gem 'rspec-rails', :group => [:test, :development]
-
-group :test do
-	gem 'factory_girl_rails'
-	gem 'capybara'
-	gem 'guard-rspec'
-end

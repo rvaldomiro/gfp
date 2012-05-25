@@ -1,12 +1,13 @@
+# -*- encoding : utf-8 -*-
 module LoginSupport
 
-	def need_login(remember_me=false)
+	def need_login(remember=false)
 		create_users
 
     visit new_sessions_path
-    fill_in "session_login_name", :with => "xpto"
-    fill_in "session_password"  , :with => "xpto"
-    check "session_remember_me" if remember_me 
+    fill_in "session_login_name", :with => @usuario_logado.login_name
+    fill_in "session_password"  , :with => @usuario_logado.password
+    check "session_remember_me" if remember 
     click_button "Login"
     current_path.should eq(root_path)
 	end

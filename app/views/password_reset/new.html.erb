@@ -1,0 +1,6 @@
+<h1>Solicitação de Alteração de Senha</h1>
+
+<%= form_tag(password_reset_create_path) do %>
+	Enviar solicitação para o e-mail<br>
+	<%= text_field_tag :email %><%= submit_tag "Enviar" %>
+<% end %>

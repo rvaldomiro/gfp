@@ -31,7 +31,7 @@ describe "ControleAcessos" do
 		fill_in "usuario_password_confirmation", :with => "xpto"
 		click_button "Gravar"
 		current_path.should eq(usuarios_path)
-		page.should have_content("Nome de usuário e/ou e-mail já cadastrados!")
+		page.should have_content("Nome de usuário já cadastrado!")
 	end	
 
   it "logando com usuário registrado" do
@@ -79,23 +79,26 @@ describe "ControleAcessos" do
 
 		visit new_sessions_path
 		click_link "Esqueceu sua senha?"
-		current_path.should eq(passwords_forgot_path)
+		current_path.should eq(password_reset_new_path)
 		
 		fill_in "email", :with => "123@456.com"
 		click_button "Enviar"  	
-		current_path.should eq(passwords_forgot_path)
+		current_path.should eq(password_reset_new_path)
 		page.should have_content("e-mail não cadastrado!")
 		last_email.should nil
 
 		fill_in "email", :with => @usuario_teste.email
-		click_button "Enviar"  	
+		click_button "Enviar"  			
 		current_path.should eq(new_sessions_path)
-		page.should have_content("As instruções para troca de sua senha foram enviadas para o e-mail #{@usuario_teste.email}")
-		last_email.to.should include(@usuario_teste.email)
 
-		@usuario_teste = Usuario.find(@usuario_teste)
-		visit "#{sessions_reset_password_path}?id=#{@usuario_teste.password_reset_token}"
-		current_path.should eq(edit_usuario_path(@usuario_teste))				
+		usuario_send = Usuario.find_by_email(@usuario_teste.email)
+		
+		page.should have_content("As instruções para troca de sua senha foram enviadas para o e-mail #{usuario_send.email}")
+		last_email.to.should include(usuario_send.email)
+		last_email.body.should have_content("#{password_reset_edit_path}?id=#{usuario_send.password_reset_token}")
+
+		visit "#{password_reset_edit_path}?id=#{usuario_send.password_reset_token}"
+		current_path.should eq(edit_usuario_path(usuario_send))				
 	end
 
 	it "acessando recursos protegidos" do
@@ -103,6 +106,7 @@ describe "ControleAcessos" do
 		current_path.should eq(new_sessions_path)
 
 		need_login
+		
     click_link "Perfil"
     current_path.should eq(edit_usuario_path(@usuario_logado))
 	end

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   	before_filter :need_login, unless: -> { 
       controller_name == "sessions" || 
       controller_name == "usuarios" && (action_name == "new" || action_name == "create" || action_name == "destroy") ||
-      controller_name == "passwords"
+      controller_name == "password_reset"
     }
 
     protected

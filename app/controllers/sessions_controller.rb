@@ -38,16 +38,4 @@ class SessionsController < ApplicationController
 		redirect_to new_sessions_path
 	end
 
-	def reset_password
-		usuario = Usuario.find_by_password_reset_token(params[:id])
-
-		if usuario
-			update_session_user(usuario)
-			redirect_to edit_usuario_path(usuario)
-		else
-			remove_session_user
-			redirect_to new_sessions_path, notice: "Código de autenticação inválido ou expirado!"
-		end
-	end
-
 end
