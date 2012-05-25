@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe "ControleAcessos" do
 
-	it "criando um usuario" do
+	it "criando um usuário" do
 		visit new_sessions_path
 		click_button "Crie sua conta agora mesmo"
 		current_path.should eq(new_usuario_path)
@@ -18,7 +18,7 @@ describe "ControleAcessos" do
 		last_email.to.should include("xpto@xpto.com.br")
 	end
 
-	it "criando um usuario que já existe" do
+	it "criando um usuário que já existe" do
 		create_users
 
 		visit new_sessions_path
@@ -34,13 +34,13 @@ describe "ControleAcessos" do
 		page.should have_content("Nome de usuário e/ou e-mail já cadastrados!")
 	end	
 
-  it "logando com usuario registrado" do
+  it "logando com usuário registrado" do
   	need_login
 
     page.should have_content("Bem-vindo Xpto")
   end
 
-  it "logando com usuario registrado solicitando lembrar informações" do
+  it "logando com usuário registrado solicitando lembrar informações" do
   	need_login(true)
 
     click_link "Sair"

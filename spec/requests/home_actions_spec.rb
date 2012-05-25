@@ -20,6 +20,7 @@ describe "HomeActions" do
     click_link "Perfil"
     click_link "Excluir Perfil"
     current_path.should eq(new_sessions_path)
+    page.should have_content("Seu perfil foi excluído com sucesso!")
   end  
 
   it "encerrando a sessão" do
