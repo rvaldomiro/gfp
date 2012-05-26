@@ -5,7 +5,7 @@ module LoginSupport
 		create_users
 
     visit new_sessions_path
-    fill_in "session_login_name", :with => @usuario_logado.login_name
+    fill_in "session_login_name", :with => @usuario_logado.nome_login
     fill_in "session_password"  , :with => @usuario_logado.password
     check "session_remember_me" if remember 
     click_button "Login"
