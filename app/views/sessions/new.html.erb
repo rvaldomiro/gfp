@@ -1,10 +1,23 @@
-<h1>Informe suas credenciais</h1>
+<%= form_for @session, :html => { :class => "well" } do |f| %>
+	<fieldset>
+		<legend>Informe suas credenciais</legend>
 
-<%= form_for @session do |f| %>
-	<%= f.text_field :login_name, :placeholder => "Nome de usuário ou e-mail" %>
-	<%= f.password_field :password, :value => @session.password, :placeholder => "Senha" %>
-	<%= f.check_box :remember_me %> Lembrar minhas informações
-	<%= f.submit "Login" %>
+		<div class="control-group">
+			<%= f.text_field :login_name, :placeholder => "Nome de usuário ou e-mail", :class=> "text-field" %>
+		</div>
+
+		<div class="control-group">
+			<%= f.password_field :password, :value => @session.password, :placeholder => "Senha", :class=> "text-field" %>
+		</div>
+
+		<div class="control-group">
+			<%= f.check_box :remember_me %> Lembrar minhas informações
+		</div>
+
+		<div class="control-group">
+			<%= f.submit "Login", :class => "btn btn-primary" %>
+		</div>
+	</fieldset>
 <% end %>
 
 <%= link_to "Esqueceu sua senha?", password_reset_new_path %>
