@@ -1,3 +1,6 @@
+<div class="row">
+<div class="span3">|</div>
+<div class="span6">
 <%= form_for @session, :html => { :class => "well" } do |f| %>
 	<fieldset>
 		<legend>Informe suas credenciais</legend>
@@ -26,4 +29,7 @@
 	<h4>Ainda não é usuário?</h4>
 	<h5>Você pode utilizar os recursos do GFP para controlar suas receitas e despesas de forma segura e totalmente de graça. Tá esperando o que?</h5>
 	<%= button_to "Crie sua conta agora mesmo", new_usuario_path, :method => "get" %>	
+</div>
+</div>
+<div class="span3">|</div>
 </div>

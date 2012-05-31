@@ -10,16 +10,18 @@
 	<body>		
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
-				<div class="container">
-					<!-- <image src="/images/logo.png" /> -->
-					<h1>GFP</h1>
-					<h4>Gerente Financeiro Pessoal</h4>
+				<div class="container top">
+					<div><image src="/images/logo.png"/></div>
+					<div>
+						<h1>GFP</h1>
+						<h4>Gerente Financeiro Pessoal</h4>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="container back">		
-			<header>
+		<div class="container body">		
+			<!-- <header> -->
 				<% if session[:user] %>
 					<br>Bem-vindo <%= session[:user].nome %>!
 					<% if session[:last_login] %>
@@ -28,24 +30,17 @@
 					<%= link_to "Perfil", edit_usuario_path(session[:user]) %>
 					<%= link_to "Sair", sessions_path, method: :delete %>
 				<% end %>
-			</header>
+			<!-- </header> -->
 
 			<% if flash[:notice] %>
 				<%= flash[:notice] %>
 			<% end %>
 		
 			<%= yield %>
+		</div>
 
-			</div>
-
-			<div class="navbar navbar-fixed-bottom">
-				<div class="navbar-inner">
-				<footer>
-					<div class="container">
-						<sub>Gerente Financeiro Pessoal</sub>
-					</div>
-				</footer>
-			</div>
+		<div class="container footer">
+			<sub>Gerente Financeiro Pessoal - Copyright 2012</sub>
 		</div>
 	</body>
 </html>
