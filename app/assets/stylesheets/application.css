@@ -12,3 +12,34 @@
  *= require_tree .
 */
 
+body {
+	background-image: url('/images/bg.png');
+}
+
+.top {
+	border-bottom: 1px solid #ccc;
+	height: 80px;
+}
+
+.top div {	
+	/*float: left;*/
+	padding: 10px;
+}
+
+.footer {
+	border-top: 1px solid #ccc;
+	text-align: center;
+}
+
+.top, .footer {
+	background-color: #f2f2f2;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;	
+}
+
+.body {
+	background-color: #fff;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	min-height: 1000px;
+}
