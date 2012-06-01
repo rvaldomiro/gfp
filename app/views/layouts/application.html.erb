@@ -9,29 +9,28 @@
 
 	<body>
 		<div class="container top">
-			<table>
-				<tr>
-					<td><img src="/images/logo.png"/></td>
-					<td><div>
+			<div><img src="/images/logo.png"/></div>
+			<div>
 				<h1>GFP</h1>
 				<p class="lead">Gerente Financeiro Pessoal</p>
-			</div></td>
-				</tr>
-			</table>	
-			<div></div>
-						
+			</div>
+			
+			<% if session[:user] %>
+				<div class="user-info">
+					<span>Olá <%= session[:user].nome %>!</span><br/>
+					<% if session[:last_login] %>
+						<sub>Seu último acesso foi em: <%= session[:last_login].strftime("%d/%m/%Y às %H:%M") %></sub>
+					<% end %>
+					<br/>
+					<hr/>					
+					<%= link_to " Meu Perfil", edit_usuario_path(session[:user]), :class => "icon-user" %>
+					|
+					<%= link_to " Sair", sessions_path, method: :delete, :class => "icon-off" %>
+				</div>
+			<% end %>							
 		</div>
 
 		<div class="container body">		
-				<% if session[:user] %>
-					<br>Bem-vindo <%= session[:user].nome %>!
-					<% if session[:last_login] %>
-						<br>Seu último acesso foi em: <%= session[:last_login].strftime("%d/%m/%Y às %H:%M") %> 
-					<% end %>	
-					<%= link_to "Perfil", edit_usuario_path(session[:user]) %>
-					<%= link_to "Sair", sessions_path, method: :delete %>
-				<% end %>
-
 			<% if flash[:notice] %>
 				<%= flash[:notice] %>
 			<% end %>
@@ -40,7 +39,7 @@
 		</div>
 
 		<div class="container footer">
-			<sub>Gerente Financeiro Pessoal - Copyright 2012</sub>
+			<sub>&copy; 2012 - Gerente Financeiro Pessoal</sub>
 		</div>
 	</body>
 </html>

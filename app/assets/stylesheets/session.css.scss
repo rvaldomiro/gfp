@@ -1,3 +1,39 @@
 // Place all the styles related to the session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+legend {
+	color: #215968;
+	text-shadow: -1px -1px 1px #fff;
+}
+
+.welcome {
+	text-align: center;
+}
+
+.welcome h1 {
+	margin-top: 20px;
+	font-family: Arial, "MS Trebuchet", sans-serif;
+	color: #215968;
+}
+
+.welcome p {
+	color: #868686;
+}
+
+.sign-in {
+	float: left;
+	margin: 100px 0 0 100px;
+}
+
+.sign-up div {
+	text-align: center;
+}
+
+.sign-up h6 {
+	margin-top: 25px;
+}
+
+.sign-up li {
+		
+}

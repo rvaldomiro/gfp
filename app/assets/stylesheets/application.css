@@ -12,23 +12,45 @@
  *= require_tree .
 */
 
-body {
-	background-image: url('/images/bg.png');
-}
-
 .top {
 	border-bottom: 1px solid #ccc;
-	height: 80px;
+	height: 85px;
 }
 
 .top div {	
-	/*float: left;*/
-	padding: 10px;
+	float: left;
+	padding: 5px 0 0 0;
+}
+
+.top div h1 {
+	font-family: Arial, "MS Trebuchet", sans-serif;
+	color: #619327;
+}
+
+.top div p {
+	color: #868686;
+}
+
+.top .user-info {
+	float: right;
+	margin: 15px 13px 0 0;
+	text-align: right;
+	color: #868686;
+}
+
+.top .user-info span {
+	color: #619327;
+}
+
+.top .user-info hr {
+	margin:1px 0 5px 0;
 }
 
 .footer {
 	border-top: 1px solid #ccc;
 	text-align: center;
+	height: 30px;
+	color: #868686;
 }
 
 .top, .footer {
@@ -38,6 +60,7 @@ body {
 }
 
 .body {
+	clear: both;
 	background-color: #fff;
 	border-left: 1px solid #ccc;
 	border-right: 1px solid #ccc;

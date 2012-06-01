@@ -14,7 +14,7 @@ describe "ControleAcessos" do
 		fill_in "usuario_password_confirmation", :with => "xpto"
 		click_button "Gravar"
 		current_path.should eq(root_path)
-		page.should have_content("Bem-vindo Xpto")
+		page.should have_content("Olá Xpto")
 		last_email.to.should include("xpto@xpto.com.br")
 	end
 
@@ -37,7 +37,7 @@ describe "ControleAcessos" do
   it "logando com usuário registrado" do
   	need_login
 
-    page.should have_content("Bem-vindo Xpto")
+    page.should have_content("Olá Xpto")
   end
 
   it "logando com usuário registrado solicitando lembrar informações" do
