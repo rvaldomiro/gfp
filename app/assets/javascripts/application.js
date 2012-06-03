@@ -23,4 +23,6 @@ $(document).ready(function() {
   	}
   });
 
+  // $('#session_login_name').popover()
+
 });
