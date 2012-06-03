@@ -66,3 +66,7 @@
 	border-right: 1px solid #ccc;
 	min-height: 1000px;
 }
+
+.alert {
+	margin: 5px;
+}

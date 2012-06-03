@@ -22,5 +22,5 @@ $(document).ready(function() {
    		$("#session_password").attr("value", null);
   	}
   });
-  
+
 });
