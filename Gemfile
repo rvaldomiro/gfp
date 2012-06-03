@@ -4,6 +4,7 @@ gem 'rails', '3.2.3'
 gem 'jquery-rails'
 gem 'heroku'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3'

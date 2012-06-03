@@ -5,27 +5,14 @@
 
 <div class="row sign-in">
 	<div class="span4">
-		<%= form_for @session, :html => { :class => "well" } do |f| %>		
-			<fieldset>
-				<legend>Informe suas credenciais</legend>
-
-				<div class="control-group required"> 
-					<%= f.text_field :login_name, :placeholder => "Nome de usuário ou e-mail", :class => "span3" %>
-				</div>
-
-				<div class="control-group">
-					<%= f.password_field :password, :value => @session.password, :placeholder => "Senha", :class => "span3" %>
-				</div>
-
-				<div class="control-group">
-					<%= f.check_box :remember_me %> Lembrar minhas informações
-					<%= f.submit "Login", :class => "btn btn-primary" %>
-				</div>
-
-				<div class="control-group">
-					<%= link_to "Esqueceu sua senha?", password_reset_new_path %>					
-				</div>
-			</fieldset>
+		<%= simple_form_for @session, :html => { :class => "well span3" } do |f| %>		
+			<legend>Informe suas credenciais</legend>
+			<%= f.input :login_name, :placeholder => "Nome de usuário ou e-mail", :label => false, :input_html => { :class => "span3" } %>	
+			<%= f.input :password, :placeholder => "Senha", :label => false, :input_html => { :class => "span3", :value => @session.password } %>
+			<%= f.input :remember_me, :as => :boolean, :label => false, :inline_label => "Lembrar minhas informações" %>
+			<%= f.submit "Login", :class => "btn btn-primary" %>
+			<br><br>
+			<%= link_to "Esqueceu sua senha?", password_reset_new_path %>					
 		<% end %>
 	</div>
 
