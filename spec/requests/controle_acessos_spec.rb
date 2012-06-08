@@ -48,14 +48,14 @@ describe "ControleAcessos" do
     page.find_field("session_password").value.should eq("ztySUlt3b+mKPX3fcm")
 
     uncheck "session_remember_me"
-    click_button "Login"
+    click_button "Acessar"
     page.should have_content("Credenciais inválidas!")
     page.find_field("session_login_name").value.should nil
     page.find_field("session_password").value.should nil
 
     fill_in "session_login_name", :with => "xpto"
     fill_in "session_password"  , :with => "xpto"
-    click_button "Login"
+    click_button "Acessar"
     current_path.should eq(root_path)
 
     click_link "Sair"
@@ -69,7 +69,7 @@ describe "ControleAcessos" do
     visit new_sessions_path
     fill_in "session_login_name", :with => "xpto1"
     fill_in "session_password"  , :with => "xpto"
-    click_button "Login" 
+    click_button "Acessar" 
     current_path.should eq(new_sessions_path)
     page.should have_content("Credenciais inválidas!")
   end

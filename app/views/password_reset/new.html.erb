@@ -1,6 +1,9 @@
-<h1>Solicitação de Alteração de Senha</h1>
-
-<%= form_tag(password_reset_create_path) do %>
-	Enviar solicitação para o e-mail<br>
-	<%= text_field_tag :email %><%= submit_tag "Enviar" %>
-<% end %>
+<div class="reset-password-container">
+	<div class="span4 offset4">
+		<%= form_tag(password_reset_create_path, :class => "well") do %>
+			<legend>Redefinição de Senha</legend>
+			<%= text_field_tag :email, nil, :class => "span3", :placeholder => "Enviar instruções de alteração para o e-mail" %><br>
+			<%= submit_tag "Enviar", :class => "btn btn-success" %>
+		<% end %>
+	</div>
+</div>

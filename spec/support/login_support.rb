@@ -8,7 +8,7 @@ module LoginSupport
     fill_in "session_login_name", :with => @usuario_logado.nome_login
     fill_in "session_password"  , :with => @usuario_logado.password
     check "session_remember_me" if remember 
-    click_button "Login"
+    click_button "Acessar"
     current_path.should eq(root_path)
 	end
 

@@ -12,6 +12,11 @@
  *= require_tree .
 */
 
+@font-face {
+	font-family: "MuseoSans300";
+	src: url(/fonts/museosans_300-webfont.ttf);
+}
+
 .top {
 	border-bottom: 1px solid #ccc;
 	height: 85px;
@@ -22,13 +27,9 @@
 	padding: 5px 0 0 0;
 }
 
-.top div h1 {
-	font-family: Arial, "MS Trebuchet", sans-serif;
+.top h1 {
+	font-family: Arial, "Lucida Grande", Tahoma, "Sans Serif";
 	color: #619327;
-}
-
-.top div p {
-	color: #868686;
 }
 
 .top .user-info {
@@ -43,7 +44,11 @@
 }
 
 .top .user-info hr {
-	margin:1px 0 5px 0;
+	margin: 1px 0 5px 0;
+}
+
+.top .user-info sub {
+	margin-right: -5px;
 }
 
 .footer {

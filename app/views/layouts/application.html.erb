@@ -9,10 +9,10 @@
 
 	<body>
 		<div class="container top">
-			<div><img src="/images/logo.png"/></div>
+			<div><%= link_to image_tag("/images/logo.png"), :controller => "home" %></div>
 			<div>
 				<h1>GFP</h1>
-				<p class="lead">Gerente Financeiro Pessoal</p>
+				<h3 class="lead">Gerente Financeiro Pessoal</h3>
 			</div>
 			
 			<% if session[:user] %>
@@ -44,7 +44,7 @@
 		</div>
 
 		<div class="container footer">
-			<sub>&copy; 2012 - Gerente Financeiro Pessoal</sub>
+			<sub>Gerente Financeiro Pessoal - Copyright &copy; 2012</sub>
 		</div>
 	</body>
 </html>
