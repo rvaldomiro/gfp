@@ -95,7 +95,7 @@ describe "ControleAcessos" do
 		
 		page.should have_content("As instruções para troca de sua senha foram enviadas para o e-mail #{usuario_send.email}")
 		last_email.to.should include(usuario_send.email)
-		last_email.body.should have_content("#{password_reset_edit_path}?id=#{usuario_send.password_reset_token}")
+		last_email.body.should have_link("Alterar minha senha", :href => @link)
 
 		visit "#{password_reset_edit_path}?id=#{usuario_send.password_reset_token}"
 		current_path.should eq(edit_usuario_path(usuario_send))				
