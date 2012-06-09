@@ -2,31 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.welcome {
+.session-container {
 	text-align: center;
+
+	h1 {
+		margin-top: 20px;
+		font-weight: normal;
+	}
 }
 
-.welcome h1 {
-	margin-top: 20px;
-	font-weight: normal;
-}
-
-.welcome-body {
+.session-container-body {
 	margin: 80px 0 0 100px;
 }
 
-.sign-in {
+.sign-in-container {
 	float: left;
 }
 
-.sign-up div {
-	text-align: center;
-}
+.sign-up-container {
+	div {
+		text-align: center;
+	}
 
-.sign-up h6 {
-	margin-top: 40px;
-}
+	h6 {
+		margin-top: 40px;
+	}
 
-.sign-up legend {
-	text-align: center;
+	legend {
+		text-align: center;
+	}
 }

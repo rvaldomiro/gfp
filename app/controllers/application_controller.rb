@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     def need_login
       unless already_logged_in?
         session[:requested_url] = request.url
-        redirect_to new_sessions_path 
+        redirect_to sign_in_path 
       end
     end
 

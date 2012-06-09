@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 				cookies.permanent[:remember_me] = usuario.auth_token if @session.remember_me?	
 				redirect_to session[:requested_url] || root_path
 			else
-				redirect_to new_sessions_path, flash: { error: "Credenciais inválidas!" }
+				redirect_to sign_in_path, flash: { error: "Credenciais inválidas!" }
 			end
 		else
 			render :new
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		remove_session_user		
-		redirect_to new_sessions_path
+		redirect_to sign_in_path
 	end
 
 end

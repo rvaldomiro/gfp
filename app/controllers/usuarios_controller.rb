@@ -39,7 +39,7 @@ class UsuariosController < ApplicationController
 		@usuario = session_user
 		@usuario.destroy
 		remove_session_user
-		redirect_to new_sessions_path, flash: { success: "Seu perfil foi excluído com sucesso! Obrigado por utilizar o GFP." }
+		redirect_to sign_in_path, flash: { success: "Seu perfil foi excluído com sucesso! Obrigado por utilizar o GFP." }
 	end
 
 end

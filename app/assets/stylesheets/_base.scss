@@ -1,0 +1,126 @@
+$app-name-color: #619327;
+$sub-color: #868686;
+$border-color: #ccc;
+$body-background-color: #dddddd;
+$link-color: #359dc3;
+$link-color-hover: #ca0205;
+
+@font-face {
+	font-family: "MuseoSans300";
+	src: url(/fonts/museosans_300-webfont.ttf);
+}
+
+body {
+  background-color: $body-background-color;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; 
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; 
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; 
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px; 
+  } 
+}
+
+a {
+  color: $link-color;
+}
+
+a:hover {
+  color: $link-color-hover;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+h1, h3, li, legend {
+	font-family: "MuseoSans300", Arial, "Lucida Grande", Tahoma, "Sans Serif";
+}
+
+h1, legend {
+	color: #215968;
+}
+
+h3, li {  
+	color: #999;
+}
+
+.simple_form label {
+	color: #666;
+}
+
+.body {
+	clear: both;
+	background-color: #fff;
+	border-left: 1px solid $border-color;
+	border-right: 1px solid $border-color;
+	min-height: 1000px;
+}
+
+.top {
+	border-bottom: 1px solid $border-color;
+	height: 85px;
+
+	div {	
+		float: left;
+		padding: 5px 0 0 0;
+	}
+
+	h1 {
+		font-family: Arial, "Lucida Grande", Tahoma, "Sans Serif";
+		color: $app-name-color;
+	}
+
+	.user-info {
+		float: right;
+		margin: 15px 13px 0 0;
+		text-align: right;
+		color: $sub-color;
+
+		span {
+			color: $app-name-color;
+		}
+
+		hr {
+			margin: 1px 0 5px 0;
+		}
+	}
+}
+
+.top, .footer {
+	background-color: #f2f2f2;
+	border-left: 1px solid $border-color;
+	border-right: 1px solid $border-color;	
+}
+
+.footer {
+	border-top: 1px solid $border-color;
+	text-align: center;
+	height: 30px;
+	color: $sub-color;
+}
+
+.alert {
+	margin: 5px;
+}
+
+.form-icon {
+	float: right;
+	margin-top: -67px;
+	opacity: 0.70;
+	-moz-opacity: 0.70;
+	filter:alpha(opacity=70);
+}
