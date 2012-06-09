@@ -1,37 +1,22 @@
-<h1>Meu Perfil</h1>
-
-<%= form_for(@usuario) do |f| %>
-	<% if @usuario.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
-
-			<ul>
-			<% @usuario.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
+<div class="row usuario-container">
+	<div class="span4 offset4">
+		<%= simple_form_for @usuario, html: { class: "well span3" } do |f| %>
+			<legend>Meu Perfil</legend>
+			<img class="form-icon" src="/images/user.png"/>
+			<%= f.input :nome, input_html: { class: "span3" } %>
+			<%= f.input :nome_login, label: "Nome de Usuário", disabled: !@usuario.id.nil?, input_html: { class: "span3" } %>
+			<%= f.input :email, label: "E-mail", disabled: !@usuario.id.nil?, input_html: { class: "span3" } %>
+			<%= f.input :password, label: "Senha", input_html: { class: "span3" } %>
+			<%= f.input :password_confirmation, label: "Confirmação", input_html: { class: "span3" } %>
+			<% if @usuario.id.nil? %>
+				<%= f.submit "Criar minha conta", class: "btn btn-success btn-large" %>
+			<% else%>
+				<%= f.submit "Gravar", class: "btn btn-primary" %>
+				ou
+				<%= link_to "Cancelar", root_path %>
+				<br><br>		
+				<%= link_to " Excluir Perfil", delete_usuario_path, rel: "popover", title: "Excluir perfil", "data-content" => "Clique aqui para cancelar sua conta do GFP e apagar todos os seus dados", class: "icon-trash", confirm: "Deseja realmente excluir seu perfil do GFP?" %>
 			<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<div class="field">
-		Seu nome<br>
-		<%= f.text_field :nome %>
+		<% end %>
 	</div>
-	<div class="field">
-		Nome de usuário<br>
-		<%= f.text_field :nome_login, :disabled => !@usuario.id.nil? %>
-	</div>
-	<div class="field">
-		e-mail<br>
-		<%= f.text_field :email, :disabled => !@usuario.id.nil? %>
-	</div>
-	<div class="field">
-		Senha<br>
-		<%= f.password_field :password %>
-	</div>
-	<div class="field">
-		Confirmação<br><%= f.password_field :password_confirmation %>
-	</div><div class="actions">
-		<%= f.submit 'Gravar' %>
-	</div>
-<% end %>
+</div>

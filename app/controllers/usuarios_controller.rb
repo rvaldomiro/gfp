@@ -15,31 +15,23 @@ class UsuariosController < ApplicationController
 	def create
 		@usuario = Usuario.new(params[:usuario])
 
-		respond_to do |format|
-			if @usuario.save
-				update_session_user(@usuario)
-				UsuarioMailer.mail_boas_vindas(request, @usuario).deliver
-				format.html { redirect_to root_path }
-				format.json { render json: @usuario, status: :created, location: @usuario }
-			else
-				format.html { render action: "new" }
-				format.json { render json: @usuario.errors, status: :unprocessable_entity }
-			end
+		if @usuario.save
+			update_session_user(@usuario)
+			UsuarioMailer.mail_boas_vindas(request, @usuario).deliver
+			redirect_to root_path
+		else
+			render :new
 		end
 	end
 
 	def update
 		@usuario = session_user
 
-		respond_to do |format|
-			if @usuario.update_attributes(params[:usuario])
-				update_session_user(@usuario)
-				format.html { redirect_to root_path, notice: "Seu perfil foi atualizado com sucesso!" }
-				format.json { head :no_content }
-			else
-				format.html { render action: "edit" }
-				format.json { render json: @usuario.errors, status: :unprocessable_entity }
-			end
+		if @usuario.update_attributes(params[:usuario])
+			update_session_user(@usuario)
+			redirect_to root_path, flash: { success: "Seu perfil foi atualizado com sucesso!" }
+		else
+			render :edit
 		end
 	end
 
@@ -47,10 +39,7 @@ class UsuariosController < ApplicationController
 		@usuario = session_user
 		@usuario.destroy
 		remove_session_user
-
-		respond_to do |format|
-			format.html { redirect_to new_sessions_path, notice: "Seu perfil foi excluído com sucesso!" }
-		end
+		redirect_to new_sessions_path, flash: { success: "Seu perfil foi excluído com sucesso! Obrigado por utilizar o GFP." }
 	end
 
 end

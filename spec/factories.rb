@@ -9,7 +9,7 @@ FactoryGirl.define do
 		password_confirmation "xpto"
 	end
 
-	factory(:usuario2, :class => :usuario) do
+	factory(:usuario2, class: :usuario) do
 		nome                  "xpto2"
 		nome_login            "xpto2"
 		email                 "xpto2@xpto.com"

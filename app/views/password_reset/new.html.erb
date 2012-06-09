@@ -1,9 +1,11 @@
-<div class="reset-password-container">
+<div class="row password-reset-container">
 	<div class="span4 offset4">
-		<%= form_tag(password_reset_create_path, :class => "well") do %>
+		<%= form_tag(password_reset_create_path, class: "well") do %>
 			<legend>Redefinição de Senha</legend>
-			<%= text_field_tag :email, nil, :class => "span3", :placeholder => "Enviar instruções de alteração para o e-mail" %><br>
-			<%= submit_tag "Enviar", :class => "btn btn-success" %>
+			<img class="form-icon" src="/images/mail.png"/>
+			<div class="input-append">
+				<%= text_field_tag :email, nil, class: "span3", placeholder: "Enviar instruções de alteração para o e-mail" %><%= submit_tag "Enviar", class: "btn btn-success", style: "height: 28px" %>
+			</div>
 		<% end %>
 	</div>
 </div>

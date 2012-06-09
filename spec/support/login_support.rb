@@ -5,8 +5,8 @@ module LoginSupport
 		create_users
 
     visit new_sessions_path
-    fill_in "session_login_name", :with => @usuario_logado.nome_login
-    fill_in "session_password"  , :with => @usuario_logado.password
+    fill_in "session_login_name", with: @usuario_logado.nome_login
+    fill_in "session_password"  , with: @usuario_logado.password
     check "session_remember_me" if remember 
     click_button "Acessar"
     current_path.should eq(root_path)

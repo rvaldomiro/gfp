@@ -1,36 +1,37 @@
 <div class="welcome">
 	<h1>Seja bem-vindo ao GFP</h1>
-	<h3>O gerenciador simples que faltava para controlar suas contas.</h3>
+	<h3 class="lead">O gerenciador simples que faltava para controlar suas contas.</h3>
 </div>
 
 <div class="welcome-body">
 	<div class="span4 sign-in">		
-		<%= simple_form_for @session, :html => { :class => "well span3" } do |f| %>	
+		<%= simple_form_for @session, html: { class: "well span3" } do |f| %>	
 			<legend>Área de acesso</legend>
-			<%= f.input :login_name, :placeholder => "Nome de usuário ou e-mail", :label => false, :input_html => { :class => "span3", "data-content" => "This is a username", "data-title" => "Username" } %>	
-			<%= f.input :password, :placeholder => "Senha", :label => false, :input_html => { :class => "span3", :value => @session.password } %>
-			<%= f.input :remember_me, :as => :boolean, :label => false, :inline_label => "Lembrar minhas credenciais" %>
-			<%= f.submit "Acessar", :class => "btn btn-primary" %>
+			<img class="form-icon" src="/images/unlock.png"/>
+			<%= f.input :login_name, placeholder: "Nome de usuário ou e-mail", label: false, input_html: { class: "span3" } %>	
+			<%= f.input :password, placeholder: "Senha", label: false, input_html: { class: "span3", value: @session.password } %>
+			<%= f.input :remember_me, as: :boolean, label: false, inline_label: "Lembrar minhas credenciais" %>
+			<%= f.submit "Acessar", class: "btn btn-primary" %>
 			<br><br>
-			<%= link_to "Esqueceu sua senha?", password_reset_new_path, rel: "popover", :title => "Redefinir senha", "data-content" => "Clique aqui e solicite a redefinição de sua senha" %>					
+			<%= link_to "Esqueceu sua senha?", password_reset_new_path, rel: "popover", title: "Redefinir senha", "data-content" => "Clique aqui para solicitar a redefinição de sua senha" %>					
 		<% end %>
 	</div>
 
-	<span class="span1"/>
+	<!-- <span class="span1"/> -->
 	<span class="span1"/>
 
 	<div class="span5 sign-up">
 		<legend>Ainda não tem uma conta? Veja as vantagens</legend>
 		<ul>
 			<li class="icon-ok-sign">Acesse de qualquer lugar</li>
-			<li class="icon-ok-sign">Controle contas-correntes, cartões de crédito e cheques</li>
-			<li class="icon-ok-sign">Obtenha uma previsão de saldo para realizações</li>
+			<li class="icon-ok-sign">Controle várias contas-correntes, cartões de crédito e cheques</li>
+			<li class="icon-ok-sign">Obtenha previsões de saldo para realizações</li>
 			<li class="icon-ok-sign">Notificações por e-mail</li>
 			<li class="icon-ok-sign">Totalmente gratuito</li>
 		</ul>
 		<div>
 			<h6>Tá esperando o que?</h6>
-			<%= button_to "Crie sua conta agora mesmo", new_usuario_path, :method => "get", :class => "btn btn-success" %>			
+			<%= button_to "Crie sua conta agora mesmo", new_usuario_path, method: :get, class: "btn btn-success btn-large" %>			
 		</div>		
 	</div>
 </div>

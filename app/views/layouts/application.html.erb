@@ -2,14 +2,14 @@
 <html>
 	<head>
 	  <title>GFP - Gerente Financeiro Pessoal</title>
-	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= stylesheet_link_tag    "application", media: "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
 	</head>
 
 	<body>
 		<div class="container top">
-			<div><%= link_to image_tag("/images/logo.png"), :controller => "home" %></div>
+			<div><%= link_to image_tag("/images/logo.png"), controller: "home" %></div>
 			<div>
 				<h1>GFP</h1>
 				<h3 class="lead">Gerente Financeiro Pessoal</h3>
@@ -23,9 +23,9 @@
 					<% end %>
 					<br/>
 					<hr/>					
-					<%= link_to " Meu Perfil", edit_usuario_path(session[:user]), :class => "icon-user" %>
+					<%= link_to " Meu Perfil", edit_usuario_path(session[:user]), class: "icon-user" %>
 					|
-					<%= link_to " Sair", sessions_path, method: :delete, :class => "icon-off" %>
+					<%= link_to " Sair", sessions_path, method: :delete, class: "icon-off" %>
 				</div>
 			<% end %>							
 		</div>

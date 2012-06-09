@@ -47,10 +47,6 @@
 	margin: 1px 0 5px 0;
 }
 
-.top .user-info sub {
-	margin-right: -5px;
-}
-
 .footer {
 	border-top: 1px solid #ccc;
 	text-align: center;
@@ -74,4 +70,12 @@
 
 .alert {
 	margin: 5px;
+}
+
+.form-icon {
+	float: right;
+	margin-top: -67px;
+	opacity: 0.70;
+	-moz-opacity: 0.70;
+	filter:alpha(opacity=70);
 }

@@ -19,14 +19,14 @@ class SessionsController < ApplicationController
 			usuario = Usuario.find_by_auth_token(cookies[:remember_me]) if @session.remember_me? && cookies[:remember_me]
 			usuario ||= Usuario.login(@session.login_name, @session.password)
 
-			cookies.delete(:remember_me) if !@session.remember_me?
+			cookies.delete(:remember_me) unless @session.remember_me?
 
 			if usuario
 				update_session_user(usuario)			
 				cookies.permanent[:remember_me] = usuario.auth_token if @session.remember_me?	
 				redirect_to session[:requested_url] || root_path
 			else
-				redirect_to new_sessions_path, :flash => { :error => "Credenciais inválidas!" }
+				redirect_to new_sessions_path, flash: { error: "Credenciais inválidas!" }
 			end
 		else
 			render :new

@@ -5,13 +5,11 @@ class Usuario < ActiveRecord::Base
 
   attr_accessible :nome, :nome_login, :email, :password_digest, :password, :password_confirmation
 
-  validates :nome,  :nome_login, :email, :presence => true
-  validates :nome_login, :uniqueness => { :message => "Nome de usuário já cadastrado!" }
-  validates :email,      :uniqueness => { :message => "e-mail já cadastrado!" }
+  validates :nome,  :nome_login, :email, presence: true
+  validates :nome_login, uniqueness: { message: "Nome de usuário já cadastrado!" }
+  validates :email, uniqueness: { message: "E-mail já cadastrado!" }
   	
-  validates_format_of :email,
-                      :with    => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
-                      :message => "e-mail inválido!"
+  validates_format_of :email, with: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, message: "E-mail inválido!"
 
   before_create { generate_unique_random_token(:auth_token) }
 
@@ -21,7 +19,7 @@ class Usuario < ActiveRecord::Base
   }
 
 	def self.login(usuario, senha)
-		find(:first, :conditions => ["nome_login = ? or email = ?", usuario, usuario]).try(:authenticate, senha)
+		find(:first, conditions: ["nome_login = ? or email = ?", usuario, usuario]).try(:authenticate, senha)
 	end
 
   def reset_password
