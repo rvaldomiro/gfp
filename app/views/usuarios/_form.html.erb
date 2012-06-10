@@ -15,7 +15,7 @@
 				ou
 				<%= link_to "Cancelar", root_path %>
 				<br><br>		
-				<%= link_to " Excluir Perfil", profile_delete_path, rel: "popover", title: "Excluir perfil", "data-content" => "Clique aqui para cancelar sua conta do GFP e apagar todos os seus dados", class: "icon-trash", confirm: "Deseja realmente excluir seu perfil do GFP?" %>
+				<%= link_to_delete "Excluir Perfil", profile_delete_path, "Clique aqui para cancelar sua conta do GFP e apagar todos os seus dados", "Deseja realmente excluir seu perfil do GFP?", "* Todas as suas informações também serão excluídas." %>
 			<% end %>
 		<% end %>
 	</div>

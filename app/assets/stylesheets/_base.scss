@@ -82,6 +82,7 @@ h3, li {
 	h1 {
 		font-family: Arial, "Lucida Grande", Tahoma, "Sans Serif";
 		color: $app-name-color;
+		text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
 	}
 
 	.user-info {

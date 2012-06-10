@@ -18,4 +18,9 @@ module ApplicationHelper
 	  end
 	end
 
+	def link_to_delete(title, action, hint, message, sub=nil)
+		message = "#{message}<p><small><i>#{sub}</i></small>" if sub 
+		link_to " #{title}", action, rel: "popover", title: "#{title}", "data-content" => "#{hint}", class: "icon-trash", confirm: "#{message}"		
+	end
+
 end
