@@ -4,22 +4,23 @@ $border-color: #ccc;
 $body-background-color: #dddddd;
 $link-color: #359dc3;
 $link-color-hover: #ca0205;
+$base-fonts: Helvetica Neue, Helvetica, Arial, Tahoma, Sans-Serif;
+$plus-fonts: MuseoSans300, Helvetica, Arial, Tahoma, Sans-Serif;
 
 @font-face {
-	font-family: "MuseoSans300";
+	font-family: MuseoSans300;
 	src: url(/fonts/museosans_300-webfont.ttf);
 }
 
 body {
   background-color: $body-background-color;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: $base-fonts;
   font-size: 13px;
   line-height: 18px; 
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px; 
 }
@@ -47,7 +48,7 @@ a:hover {
 }
 
 h1, h3, li, legend {
-	font-family: "MuseoSans300", Arial, "Lucida Grande", Tahoma, "Sans Serif";
+	font-family: $plus-fonts;
 }
 
 h1, legend {
@@ -58,8 +59,10 @@ h3, li {
 	color: #999;
 }
 
-.simple_form label {
-	color: #666;
+.simple_form {
+	label {
+		color: #666;
+	}
 }
 
 .body {
@@ -80,7 +83,7 @@ h3, li {
 	}
 
 	h1 {
-		font-family: Arial, "Lucida Grande", Tahoma, "Sans Serif";
+		font-family: Tahoma, Arial, Lucida Grande, Sans-Serif;
 		color: $app-name-color;
 		text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
 	}
@@ -123,5 +126,5 @@ h3, li {
 	margin-top: -67px;
 	opacity: 0.70;
 	-moz-opacity: 0.70;
-	filter:alpha(opacity=70);
+	filter: alpha(opacity=70);
 }
