@@ -13,10 +13,10 @@ describe "Navegação" do
       click_link "Perfil"
       current_path.should eq(profile_edit_path(@usuario_logado))
       page.should have_link("Cancelar", href: root_path)
-      fill_in "usuario_nome", with: "xpto1"
+      fill_in "usuario_nome", with: "xpto1 super"
       click_button "Gravar"
       current_path.should eq(root_path) 
-      Usuario.find(@usuario_logado).nome.should eq("Xpto1")             
+      Usuario.find(@usuario_logado).nome.should eq("Xpto1 Super")             
       page.should have_content("Seu perfil foi atualizado com sucesso!")
     end
 

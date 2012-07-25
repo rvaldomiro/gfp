@@ -14,8 +14,8 @@ class Usuario < ActiveRecord::Base
   before_create { generate_unique_random_token(:auth_token) }
 
   before_save { |u| 
-    u.nome  = u.nome.capitalize 
-    u.email = u.email.downcase
+    u.nome = u.nome.titleize
+    u.email.downcase!
   }
 
 	def self.login(usuario, senha)

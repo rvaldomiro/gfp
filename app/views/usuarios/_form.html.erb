@@ -3,7 +3,7 @@
 		<%= simple_form_for @usuario, html: { class: "well span3" } do |f| %>
 			<legend>Meu Perfil</legend>
 			<img class="form-icon" src="/images/user.png"/>
-			<%= f.input :nome, input_html: { class: "span3" } %>
+			<%= f.input :nome, autofocus: true, input_html: { class: "span3" } %>
 			<%= f.input :nome_login, label: "Nome de Usuário", disabled: !@usuario.id.nil?, input_html: { class: "span3" } %>
 			<%= f.input :email, label: "E-mail", disabled: !@usuario.id.nil?, input_html: { class: "span3" } %>
 			<%= f.input :password, label: "Senha", input_html: { class: "span3" } %>
